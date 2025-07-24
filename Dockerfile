@@ -1,6 +1,6 @@
 # STEP 1: Gunakan image dasar Node.js
 # Memilih versi Node.js yang sesuai dan base image Alpine yang ringan.
-FROM node:18-alpine
+FROM node:22-alpine
 
 # STEP 2: Tentukan direktori kerja di dalam container
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 # STEP 3: Salin package.json dan package-lock.json terlebih dahulu
 # Ini memanfaatkan Docker cache layer. Jika dependensi tidak berubah, langkah instalasi tidak perlu diulang.
 COPY package.json ./
-COPY package-lock.json ./ # <--- PENTING: Kembali ke package-lock.json untuk NPM
+COPY package-lock.json ./
 
 # STEP 4: Instal semua dependensi Node.js menggunakan NPM
 # Gunakan --production jika Anda hanya ingin menginstal dependensi yang dibutuhkan di runtime.
