@@ -48,7 +48,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/tags", tagRoutes);
 
-// --- PENTING: Middleware untuk melayani file yang diupload ---
+// --- noteeed: Middleware untuk melayani file yang diupload ---
 // Ini akan membuat file di folder `uploads` bisa diakses melalui URL `/uploads/*`
 // Path ini diasumsikan folder `uploads` berada di root proyek (sejajar dengan `src`).
 app.use("/uploads", express.static(uploadsDir));
