@@ -12,7 +12,7 @@ COPY package-lock.json ./
 
 # STEP 4: Instal semua dependensi Node.js menggunakan NPM
 # Gunakan --production jika Anda hanya ingin menginstal dependensi yang dibutuhkan di runtime.
-RUN npm install --production # <--- PENTING: Kembali ke npm install
+RUN npm install --production
 
 # STEP 5: Salin semua kode aplikasi dari host ke direktori kerja di container
 COPY . .
@@ -27,5 +27,5 @@ RUN npx prisma generate
 EXPOSE 3000
 
 # STEP 8: Tentukan perintah yang akan dijalankan saat container dimulai
-# Jika di package.json Anda ada "start": "node src/server.js"
-CMD ["npm", "start"] # <--- PENTING: Kembali ke npm start
+# PERBAIKAN: Menggunakan "shell form" untuk CMD untuk mengatasi error `[npm,: not found`
+CMD npm start
