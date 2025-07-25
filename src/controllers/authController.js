@@ -7,10 +7,10 @@ const prisma = new PrismaClient();
 
 /**
  * @desc    Register a new user
- * @route   POST /api/auth/register
+ * @route   POST /api/auth/registerssssssss
  * @access  Public
  */
-const registerUser = async (req, res) => {
+const registerUser =  async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ success: false, errors: errors.array() });
